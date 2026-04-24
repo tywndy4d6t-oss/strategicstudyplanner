@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Smart Study Planner</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+<div id="loginPage" class="card">
+  <h2>🔐 Login / Signup</h2>
+
+  <input type="text" id="name" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="dashboard" class="hidden">
+
+<header>
+  <h1>📚 Smart Study Planner</h1>
+  <button onclick="logout()">Logout</button>
+  <button onclick="toggleDarkMode()">🌙</button>
+</header>
+
+<!-- TASK INPUT -->
+<section class="card">
+  <h3>Add Task</h3>
+
+  <input id="taskName" placeholder="Subject">
+  
+  <select id="difficulty">
+    <option>Easy</option>
+    <option>Medium</option>
+    <option>Hard</option>
+  </select>
+
+  <input id="hours" type="number" placeholder="Hours">
+  <input id="deadline" type="date">
+
+  <button onclick="addTask()">Add Task</button>
+</section>
+
+<!-- TASK LIST -->
+<section class="card">
+  <h3>Tasks</h3>
+  <ul id="taskList"></ul>
+</section>
+
+<!-- TIMETABLE -->
+<section class="card">
+  <h3>AI Timetable</h3>
+  <button onclick="generateTimetable()">Generate</button>
+  <ul id="timetable"></ul>
+</section>
+
+<!-- GAMIFICATION -->
+<section class="card">
+  <h3>Gamification</h3>
+  <p id="points">Points: 0</p>
+  <p id="level">Level: Beginner</p>
+  <p id="streak">Streak: 0 days</p>
+</section>
+
+<!-- FOCUS MODE -->
+<section class="card">
+  <h3>Focus Mode</h3>
+  <button onclick="startPomodoro()">Start</button>
+  <p id="timer"></p>
+</section>
+
+<!-- ANALYTICS -->
+<section class="card">
+  <h3>Analytics</h3>
+  <canvas id="chart"></canvas>
+</section>
+
+<!-- AI CHAT -->
+<section class="card">
+  <h3>AI Assistant</h3>
+  <input id="chatInput">
+  <button onclick="chat()">Ask</button>
+  <p id="chatOutput"></p>
+</section>
+
+<button onclick="exportPDF()">Download PDF</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
